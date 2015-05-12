@@ -149,9 +149,9 @@ class ScheduleController extends Controller
 			$doctrine = $this->getDoctrine()->getManager();
 			$schedule = $doctrine->getRepository('MainBundle:Schedule')->find($id);
 			if($action == 'done') {
-				$status_id 			= 4;
+				
 			} else if($action == 'cancel') {
-				$status_id 			= 3;
+				
 			}
 			$schedulestatus = $doctrine->getRepository('MainBundle:ScheduleStatus')->find($status_id);
 			$schedule->setScheduleStatus($schedulestatus);
