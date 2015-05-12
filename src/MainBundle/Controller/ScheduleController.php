@@ -142,28 +142,27 @@ class ScheduleController extends Controller
 
 	public function statusChangeAction($action, $id)
 	{
-		if ($id) {
-			$status_id 			= 0;
-			$redirect_action 	= 'get'; 
-			$ucb_patient_action = $this->container->getParameter('ucb_patient_login');
-			$doctrine = $this->getDoctrine()->getManager();
-			$schedule = $doctrine->getRepository('MainBundle:Schedule')->find($id);
-			if($action == 'done') {
-				$schedulestatus = $doctrine->getRepository('MainBundle:ScheduleStatus')->find($status_id);
-			} else if($action == 'cancel') {
-				$schedulestatus = $doctrine->getRepository('MainBundle:ScheduleStatus')->find($status_id);	
-			}
-			$schedule->setScheduleStatus($schedulestatus);
-			$doctrine->persist($schedule);
-			$doctrine->flush();
-			if($action == 'cancel') {
-				$this->sendCancelledMail($schedule);
-				return $this->redirect($this->generateUrl('schedule_list', array('action' => $redirect_action)));
-			} else {
-				return $this->redirect($ucb_patient_action);
-			}
+		$status_id 			= 0;
+		$redirect_action 	= ''; 
+		$ucb_patient_action = $this->container->getParameter('ucb_patient_login');
+		$doctrine = $this->getDoctrine()->getManager();
+		$schedule = $doctrine->getRepository('MainBundle:Schedule')->find($id);
+		if($action == 'done') {
+			$status_id 			= 4;
+			$redirect_action 	= 'upcoming';
+		} else if($action == 'cancel') {
+			$status_id 			= 3;
+			$redirect_action 	= 'get';
+		}
+		$schedulestatus = $doctrine->getRepository('MainBundle:ScheduleStatus')->find($status_id);
+		$schedule->setScheduleStatus($schedulestatus);
+		$doctrine->persist($schedule);
+		$doctrine->flush();
+		if($action == 'cancel') {
+			$this->sendCancelledMail($schedule);
+			return $this->redirect($this->generateUrl('schedule_list', array('action' => $redirect_action)));
 		} else {
-			return $this->redirect($this->generateUrl('schedule_list', array('action' => 'get')));
+			return $this->redirect($ucb_patient_action);
 		}
 	}
 
