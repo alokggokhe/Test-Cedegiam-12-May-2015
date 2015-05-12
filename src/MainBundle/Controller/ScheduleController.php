@@ -144,7 +144,7 @@ class ScheduleController extends Controller
 	{
 		if ($id) {
 			$status_id 			= 0;
-			$redirect_action 	= ''; 
+			$redirect_action 	= 'get'; 
 			$ucb_patient_action = $this->container->getParameter('ucb_patient_login');
 			$doctrine = $this->getDoctrine()->getManager();
 			$schedule = $doctrine->getRepository('MainBundle:Schedule')->find($id);
@@ -152,7 +152,6 @@ class ScheduleController extends Controller
 				$status_id 			= 4;
 			} else if($action == 'cancel') {
 				$status_id 			= 3;
-				$redirect_action 	= 'get';
 			}
 			$schedulestatus = $doctrine->getRepository('MainBundle:ScheduleStatus')->find($status_id);
 			$schedule->setScheduleStatus($schedulestatus);
