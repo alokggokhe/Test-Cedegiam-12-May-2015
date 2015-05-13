@@ -142,7 +142,6 @@ class ScheduleController extends Controller
 
 	public function statusChangeAction($action, $id)
 	{
-		$status_id 			= 0;
 		$redirect_action 	= 'get'; 
 		$ucb_patient_action = $this->container->getParameter('ucb_patient_login');
 		$doctrine = $this->getDoctrine()->getManager();
