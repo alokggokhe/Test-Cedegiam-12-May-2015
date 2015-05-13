@@ -152,7 +152,6 @@ class ScheduleController extends Controller
 		} else if($action == 'cancel') {
 			$schedulestatus = $doctrine->getRepository('MainBundle:ScheduleStatus')->find(3);
 		}
-		
 		$schedule->setScheduleStatus($schedulestatus);
 		$doctrine->persist($schedule);
 		$doctrine->flush();
