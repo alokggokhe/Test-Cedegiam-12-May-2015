@@ -8,11 +8,20 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class AppointmentController extends Controller
 {
 
+	/**
+	* Landing page after Accept/Decline invitation by patient
+	*
+	*/
 	public function indexAction()
 	{
 		return $this->render('MainBundle:Appointment:index.html.twig');
 	}
 	
+	/**
+	* Change status to 'Cancelled' when patient declined the invitation.
+	* No action when patient accepted the invitation.
+	*
+	*/
 	public function statusChangeAction($action,$id)
 	{
 		if($id == '' && $action == '') {

@@ -136,11 +136,6 @@
 					I look forward to speaking with you on {{ date }} at {{ time }} and hope this presentation will be helpful.
 				</p>
 
-				<p  style="padding:0 20px; line-height:1.4;"><br />
-					<a href='{{ app.request.uriForPath("/appointment/accept/#{schedule_id}") }}' title="Accept">Accept</a>
-					<a href='{{ app.request.uriForPath("/appointment/decline/#{schedule_id}") }}' title="Decline">Decline</a>
-				</p>
-
 				<p style="padding:0 20px; line-height:1.4;"><br />
 					Best regards,<br /> Dr. {{ hcp_firstname }} {{ hcp_name }} 
 				</p>

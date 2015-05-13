@@ -5,7 +5,7 @@
 /* Typography */
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
-  font-family: sans-serif;
+  font-family: Arial,sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%; }
 
@@ -823,14 +823,14 @@ html {
   -webkit-tap-highlight-color: transparent; }
 
 body {
-  font-family: Helvetica Neue, Helvetica Light, Helvetica-Light, Helvetica, Roboto Light, Roboto-Light, Roboto, Arial, sans-serif;
+  font-family: Arial,sans-serif;
   font-size: 16px;
   line-height: 1.42857;
   color: #333333;
   background-color: #fff; }
 
 input, button, select, textarea {
-  font-family: inherit;
+  font-family: Arial,sans-serif !important;
   font-size: inherit;
   line-height: inherit; }
 
@@ -900,7 +900,7 @@ hr {
   clip: auto; }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: inherit;
+  font-family: Arial,sans-serif !important;
   font-weight: 500;
   line-height: 1.1;
   color: inherit; }
@@ -1142,7 +1142,7 @@ address {
   line-height: 1.42857; }
 
 code, kbd, pre, samp {
-  font-family: Menlo, Monaco, Consolas, "Courier New", monospace; }
+  font-family: Arial,sans-serif !important; }
 
 code {
   padding: 2px 4px;
@@ -4107,7 +4107,7 @@ button.close {
   z-index: 1070;
   display: block;
   visibility: visible;
-  font-family: Helvetica Neue, Helvetica Light, Helvetica-Light, Helvetica, Roboto Light, Roboto-Light, Roboto, Arial, sans-serif;
+  font-family: Arial,sans-serif;
   font-size: 14px;
   font-weight: normal;
   line-height: 1.4;
@@ -4202,7 +4202,7 @@ button.close {
   display: none;
   max-width: 276px;
   padding: 1px;
-  font-family: Helvetica Neue, Helvetica Light, Helvetica-Light, Helvetica, Roboto Light, Roboto-Light, Roboto, Arial, sans-serif;
+  font-family: Arial,sans-serif;
   font-size: 16px;
   font-weight: normal;
   line-height: 1.42857;
@@ -4401,7 +4401,7 @@ button.close {
     width: 20px;
     height: 20px;
     margin-top: -10px;
-    font-family: serif; }
+    font-family: Arial,sans-serif; }
   .carousel-control .icon-prev:before {
     content: '\2039'; }
   .carousel-control .icon-next:before {

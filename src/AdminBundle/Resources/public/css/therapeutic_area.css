@@ -6,12 +6,12 @@
 .first-text-header{
 	color: #FFFFFF;
 	font-size: 16pt;
-	font-family: "Helvetica Neue", "Helvetica Medium"
+	font-family: Arial,sans-serif;
 }
 .second-text-header{
 	color: #FFFFFF;
 	font-size: 14pt;
-	font-family: "Helvetica Neue", "Helvetica Light"
+	font-family: Arial,sans-serif;
 }
 .row-gap {
 	float: left;

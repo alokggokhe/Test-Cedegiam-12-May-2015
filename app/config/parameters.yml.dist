@@ -34,3 +34,6 @@ parameters:
 
     #ucb patient
     ucb_patient_login: https://patient.ucbdandelion.com/
+
+	#ucb privacy
+	home_privacy: https://visit.ucbdandelion.com/custom/img/150112_Legal%20Policy_UCBDandelion.pdf

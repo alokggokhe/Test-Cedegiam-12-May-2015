@@ -13,6 +13,8 @@ class ForgottenPasswordController extends Controller
     	
     	$email = "";
 
+	    $home_privacy = $this->container->getParameter('home_privacy');        
+
     	if ($request->getMethod() == 'POST') {
 
         	$email = $request->get('email');
@@ -29,8 +31,8 @@ class ForgottenPasswordController extends Controller
     		
 	            	$client = new \SoapClient($server, array('trace' => 1));
 
-	            	$response = $client->__soapCall('SendMailForgotPwd', array($a));
-	            	
+	            	$response = $client->__soapCall('SendMailForgotPwd', array($a));	            	
+
 	            	if($response->return->returnCode){
 			    		$request->getSession()->getFlashBag()->add('error', $response->return->errorMessage);
 	              	}
@@ -47,6 +49,6 @@ class ForgottenPasswordController extends Controller
 
     	$action = $this->generateUrl('forgotten_password');
         
-        return $this->render('MainBundle:ForgottenPassword:forgotten.html.twig', array('action' => $action, 'email' => $email));
+        return $this->render('MainBundle:ForgottenPassword:forgotten.html.twig', array('action' => $action, 'email' => $email,'privacy' => $home_privacy));
     }
 }

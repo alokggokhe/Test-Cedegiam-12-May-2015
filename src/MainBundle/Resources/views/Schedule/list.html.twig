@@ -1,9 +1,5 @@
 {% extends 'MainBundle::layout.html.twig' %}
 
-{% block title %}
-Manage Schedule | UCB Dandelion
-{% endblock %}
-
 {% block modulestylesheets %}
 <link href="{{ asset('bundles/main/css/schedule.css') }}" type="text/css" rel="stylesheet" />
 {% endblock %}
@@ -69,6 +65,8 @@ Manage Schedule | UCB Dandelion
 									{% set status_color_text = 'confirmed-edited-schedule-color' %}
 								{% elseif schedule.scheduleStatus.id == 3 %}
 									{% set status_color_text = 'cancelled-schedule-color' %}
+								{% elseif schedule.scheduleStatus.id == 4 %}
+									{% set status_color_text = 'done-schedule-color' %}	
 								{% endif %}
 								<div class="{{ status_color_text }}">{{schedule.scheduleStatus.name}}</div>
 								<div class="">{{schedule.scheduledatetime|date("Y/m/d")}}</div>
@@ -77,9 +75,9 @@ Manage Schedule | UCB Dandelion
 	                    </div>
 	                    <div class="col-xs-6 col-md-1">
 	                    {% if action == 'upcoming' %}	                    
-	                    	<a href="{{ path('schedule_status', {'action':'done','id':schedule.id}) }}" title='Cancel'>
+	                    	<a href="{{ path('schedule_status', {'action':'done','id':schedule.id}) }}" title='Initiate'>
 								<button type="button" class="btn btn-primary btn-sm btn_initiate_schedule initiate-schedule" id="{{schedule.id}}" title='Initiate'>
-									<img class='btn_initiate_schedule' alt='cancel' src='{{ asset('bundles/main/images/play.png') }}' /> 
+									<img class='btn_initiate_schedule' alt='Initiate' src='{{ asset('bundles/main/images/play.png') }}' /> 
 								</button>
 							</a>						
 	                    {% else %}                    
@@ -90,7 +88,7 @@ Manage Schedule | UCB Dandelion
 								</a>
 								{% if schedule.scheduleStatus.id == 3 %}
 									<button type="button" class="btn btn-danger btn-sm btn_cancel_schedule" id="{{schedule.id}}" title='Cancel' onclick="cancelSchedule('{{ schedule.id }}')">
-										<img class='btn_cancel_schedule' alt='cancel' src='{{ asset('bundles/main/images/icon_remove.png') }}' /> 
+										<img class='btn_cancel_schedule' alt='cancel' src='{{ asset('bundles/main/images/bt_close.png') }}' /> 
 									</button>
 								{% else %}
 									<a href="{{ path('schedule_confirm_cancel', {'id':schedule.id}) }}" title='Cancel'>

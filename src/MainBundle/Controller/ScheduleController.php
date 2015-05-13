@@ -12,6 +12,10 @@ use Cegedim\Bundle\OwaCasBundle\Security\User\OwaUser;
 
 class ScheduleController extends Controller
 {
+	/**
+	* Add Shcedule
+	*
+	*/
 	public function addAction(Request $request)
 	{
 		$schedule = new Schedule();
@@ -34,6 +38,10 @@ class ScheduleController extends Controller
 		));
 	}
 
+	/**
+	* Edit Shcedule
+	*
+	*/
 	public function editAction(Request $request, $id)
 	{
 		$doctrine = $this->getDoctrine()->getManager();
@@ -64,6 +72,11 @@ class ScheduleController extends Controller
 		));
 	}
 
+	/**
+	* List Shcedule
+	* $action - upcoming/get (Upcoming/Manage)
+	*
+	*/
 	public function listAction($action)
 	{
 
@@ -94,6 +107,10 @@ class ScheduleController extends Controller
 		));
 	}
 
+	/**
+	* Schedule Confirm after adding/eiditing the schedule
+	*
+	*/
 	public function scheduleConfirmAction(Request $request)
 	{
 
@@ -121,6 +138,10 @@ class ScheduleController extends Controller
 		));
 	}
 
+	/**
+	* Schedule Confirm cancel after cancelling the schedule
+	*
+	*/
 	public function scheduleConfirmCancelAction($id)
 	{
 		if($id == '') {
@@ -140,6 +161,10 @@ class ScheduleController extends Controller
 		}
 	}
 
+	/**
+	* Common action to change the schedule status
+	*
+	*/
 	public function statusChangeAction($action, $id)
 	{
 		$redirect_action 	= 'get'; 
@@ -162,6 +187,10 @@ class ScheduleController extends Controller
 		}
 	}
 
+	/**
+	* To send the cancelled mail
+	*
+	*/
 	private function sendCancelledMail($schedule)
 	{
 		$owauser = '';
@@ -177,6 +206,10 @@ class ScheduleController extends Controller
 		}
 	}
 
+	/**
+	* To send the add/edit mail
+	*
+	*/
 	private function sendCreateEditMail($schedule_id, $action)
 	{
 		$owauser = '';
@@ -195,7 +228,7 @@ class ScheduleController extends Controller
 
 		if($action == 'Add') {
 			$hcpConfirmationMailer       	= $this->get('hcp_confirmation_mailer');
-			$sendHcpConfirmationMailer   	= $hcpConfirmationMailer->sendMail($schedule,$owauser,$ucb_patient_action,$file_path);
+			$sendHcpConfirmationMailer   	= $hcpConfirmationMailer->sendMail($schedule,$owauser,$ucb_patient_action);
 			if (true !== $sendHcpConfirmationMailer){
 				throw new \Exception('Send mail exception');
 			}
@@ -209,6 +242,10 @@ class ScheduleController extends Controller
 		$filesystem->remove($file_path);
 	}
 
+	/**
+	* To create the ICS file
+	*
+	*/
 	private function createIcsFile(Schedule $schedule,OwaUser $owauser)
 	{
 		$timezone = date_default_timezone_get();

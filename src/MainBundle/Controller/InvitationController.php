@@ -30,15 +30,19 @@ class InvitationController extends Controller
             $em->persist($invitation);
             $em->flush();
 
-            $mslMailerService = $this->get('msl_mailer');
-            $sentMsl = $mslMailerService->sendMail($invitation);
+            // echo "<pre>";
+            // print_r($invitation->getDateTime());
+            // die;
 
-            $hcpMailerService = $this->get('hcp_mailer');
-            $sentHcp = $hcpMailerService->sendMail($invitation);
+            // $mslMailerService = $this->get('msl_mailer');
+            // $sentMsl = $mslMailerService->sendMail($invitation);
 
-            if (true !== $sentMsl || true !== $sentHcp ){
-                throw new \Exception('Send mail exception');
-            }
+            // $hcpMailerService = $this->get('hcp_mailer');
+            // $sentHcp = $hcpMailerService->sendMail($invitation);
+
+            // if (true !== $sentMsl || true !== $sentHcp ){
+            //     throw new \Exception('Send mail exception');
+            // }
 
 
 

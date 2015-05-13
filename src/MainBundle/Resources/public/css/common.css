@@ -9,7 +9,7 @@
 .common-button, .common-button:hover {
 	background-color: #46b29b !important;
 	font-size: 14pt !important;
-	font-family: "Helvetica Neue", "Helvetica Regular";
+	font-family: Arial,sans-serif;
 	text-transform: uppercase;
 	border: #46b29b !important;
 	cursor: pointer;
@@ -17,7 +17,7 @@
 .delete-button{
 	background-color: #ca2222 !important;
 	font-size: 14pt !important;
-	font-family: "Helvetica Neue","Helvetica Regular";
+	font-family: Arial,sans-serif;
 	font-weight: normal;
 	text-transform: uppercase;
 	color: #FFFFFF;
@@ -26,7 +26,7 @@
 .save-button{
 	background-color: #46b29b !important;
 	font-size: 14pt !important;
-	font-family: "Helvetica Neue","Helvetica Regular";
+	font-family: Arial,sans-serif;
 	font-weight: normal;
 	text-transform: uppercase;
 	color: #FFFFFF;
@@ -35,7 +35,7 @@
 .close-button{
 	background-color: #46b29b !important;
 	font-size: 14pt !important;
-	font-family: "Helvetica Neue","Helvetica Regular";
+	font-family: Arial,sans-serif;
 	font-weight: normal;
 	text-transform: uppercase;
 	color: #FFFFFF;
@@ -58,4 +58,14 @@
 /* Popup */
 .modal-title {
 	font-weight: bold;
+}
+.index .title-login , .homepage .title-login {
+	font-size: 3.0rem !important;
+}
+.index .hostlink, .homepage .hostlink {
+	margin-bottom: -20px;
+	margin-top: 100px;
+}
+.index .fa-user, .homepage .fa-user,.index .fa-lock, .homepage .fa-lock, .fa-envelope {
+	color: black;
 }

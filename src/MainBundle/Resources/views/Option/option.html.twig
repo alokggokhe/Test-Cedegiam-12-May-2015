@@ -1,20 +1,16 @@
 {% extends 'MainBundle::layout.html.twig' %}
 
-{% block title %}
-Option | UCB Dandelion
-{% endblock %}
-
 {% block content %}
     <section id="panel">
         <div class="panel">
 
             <div class="panel-form-first-part">
                 <a href="{{ path('logout') }}" id="logout">Log out</a>
-                <h1 class="panel-title-form">Welcome back to your personal<br /> Dandelion Space, <strong>Dr. {{name}}</strong></h1>
+                <h1 class="panel-title-form">Welcome back to your personal<br /> Dandelion Space, <b>Dr. {{name}}</b></h1>
             </div>
 
             <nav class="panel-form-second-part">
-                <h2 class="title-option"><strong>Option page</strong></h2>
+                <h2 class="title-option"><b>Option page</b></h2>
                 <h3>Please select a service we can help you with.</h3>
                 <a href="{{ path('invitation') }}" title="" class="">
                     <div class="block-button">
@@ -67,7 +63,7 @@ Option | UCB Dandelion
                 </a>
             </nav>
             <div class="row footer">
-                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6"><a href="https://visit.ucbdandelion.com/custom/img/150112_Legal%20Policy_UCBDandelion.pdf" title="Privacy Policy" target="_blank">Privacy Policy</a></div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6"><a href="{{privacy}}" title="Privacy Policy" target="_blank">Privacy Policy</a></div>
             </div>
         </div>
     </section>

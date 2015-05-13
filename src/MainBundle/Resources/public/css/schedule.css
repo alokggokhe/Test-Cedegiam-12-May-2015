@@ -37,7 +37,7 @@
 	font-size: 13px;
 }
 .schedule_list_form .col-xs-6 button {
-	margin: 1px 3px 9px 3px;
+	margin: 1px 3px 5px;
 }
 .schedule_list_form .col-xs-6 span {
 	margin-bottom: 10px;
@@ -96,18 +96,21 @@
 	margin-bottom: 5px !important;
 }
 .schedule_list .scheduledatetime-box {
-    height: 75px;
-    padding: 5px 0 0 !important;
-    text-align: center;
+	height: 75px;
+	padding: 5px 0 0 !important;
+	text-align: center;
 }
 .schedule_list .confirmed-schedule-color {
-	color: #CC9933;
+	color: #008000;
 }
 .schedule_list .confirmed-edited-schedule-color {
-	color: #CCCC33;
+	color: #CC9933;
 }
 .schedule_list .cancelled-schedule-color {
-	color: #993300;
+	color: #FF0000;
+}
+.schedule_list .done-schedule-color {
+	color: #008000;
 }
 .schedule_list .initiate-schedule {
 	height: 75px;
@@ -124,4 +127,13 @@
 }
 .btn_initiate_schedule {
 	padding: 5px 4px;
+}
+.schedule_form .form-horizontal .form-group .col-sm-12 {
+	margin-left: -5px;
+}
+@media(max-width:750px){
+	.schedule_form .form-horizontal .form-group .col-sm-12 {
+		margin-bottom: -20px;
+		margin-left: -15px;
+	}
 }

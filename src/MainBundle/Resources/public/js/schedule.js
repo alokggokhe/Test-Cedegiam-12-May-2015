@@ -1,10 +1,32 @@
 $(document).ready(function(){
 	$('span[title]').tooltip({placement:'top'});
+	var isScheduleEdit = $('#is_edit').val();
+	if(isScheduleEdit == 1){
+		$(".form_scheduledatetime").datetimepicker({
+			format: 'yyyy-mm-dd hh:ii',
+			showMeridian: true,
+			autoclose: true,
+			todayBtn: true,
+			endDate: '+1y',
+			minuteStep: 30,
+			todayHighlight: true,
+			pickerPosition: "bottom-left"
+		});
+	}else{
+		$(".form_scheduledatetime").datetimepicker({
+			format: 'yyyy-mm-dd hh:ii',
+			showMeridian: true,
+			autoclose: true,
+			todayBtn: true,
+			startDate: new Date(),
+			endDate: '+1y',
+			minuteStep: 30,
+			todayHighlight: true,
+			pickerPosition: "bottom-left"
+		});
+	}	
 });
-$(document).click(function(event) {
-	var target = $(event.target);
-	$(".form_scheduledatetime").datetimepicker('hide');
-});
+
 function cancelSchedule(schdule_id) {
 	$('.alert-message').html('You have already cancelled this session');
 	$('#popupCommonAlert').modal('show');
